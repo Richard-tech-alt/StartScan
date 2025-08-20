@@ -140,18 +140,17 @@ export default function AccountSecurityScan() {
             <div className="mb-8 sm:mb-12">
               <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-green-600 inline-block mr-2 sm:mr-3" />
               <h2 className="text-xl sm:text-3xl font-bold text-gray-900 inline-block">
-                Your Account Looks Secure
+                Your Account Looks Unsecure
               </h2>
               <p className="text-gray-500 text-base sm:text-lg mt-3 sm:mt-4">
-                No unusual activity detected. You're good to go!
+                Some unusual activity detected.
               </p>
             </div>
-           
             <button
               onClick={resetScan}
               className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-8 sm:px-10 py-3 sm:py-4 rounded-lg transition-colors duration-200 text-base sm:text-lg"
             >
-              Go Back to Dashboard
+              Secure Your Device
             </button>
           </div>
         )}
@@ -159,3 +158,4 @@ export default function AccountSecurityScan() {
     </div>
   );
 }
+
