@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { CheckCircle, Loader2 } from 'lucide-react';
+import { CheckCircle, Circle, Loader2, XCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export default function AccountSecurityScan() {
@@ -57,7 +57,8 @@ export default function AccountSecurityScan() {
         {scanState === 'initial' && (
           <>
             {/* Header Section */}
-            <div className="text-center px-6 sm:px-8 pt-8 sm:pt-12 pb-6 sm:pb-8">
+            {/* <div className="text-center px-6 sm:px-8 pt-8 sm:pt-12 pb-6 sm:pb-8">
+              <img src='/Spectrum.png' alt='' className='w-24 h-24'/>
               <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Scan Your Account
               </h1>
@@ -65,7 +66,23 @@ export default function AccountSecurityScan() {
                 Check your account and connected devices<br />
                 for unusual activity.
               </p>
-            </div>
+            </div> */}
+
+            <div className="text-center px-6 sm:px-8 pt-8 sm:pt-12 pb-6 sm:pb-8">
+  <img 
+    src="/Spectrum.png" 
+    alt="Spectrum Logo" 
+    className="mx-auto w-48 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40"
+  />
+  <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+    Scan Your Account
+  </h1>
+  <p className="text-gray-500 text-base sm:text-lg leading-relaxed">
+    Check your account and connected devices<br />
+    for unusual activity.
+  </p>
+</div>
+
 
             {/* Divider */}
             <div className="border-t border-gray-100"></div>
@@ -120,7 +137,8 @@ export default function AccountSecurityScan() {
                 {securityChecks.map((check, index) => (
                   <div key={index} className="flex items-center text-base sm:text-lg">
                     {completedChecks.includes(index) ? (
-                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 mr-3 sm:mr-4 flex-shrink-0" />
+                      // <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 mr-3 sm:mr-4 flex-shrink-0" />
+                          <XCircle className="w-6 h-6 sm:w-8 sm:h-8 text-red-600 inline-block mr-2 sm:mr-3" />
                     ) : (
                       <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-gray-300 rounded-full mr-3 sm:mr-4 flex-shrink-0"></div>
                     )}
@@ -138,7 +156,7 @@ export default function AccountSecurityScan() {
           <div className="px-6 sm:px-8 py-8 sm:py-12 text-center">
             {/* Success Icon and Message */}
             <div className="mb-8 sm:mb-12">
-              <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-green-600 inline-block mr-2 sm:mr-3" />
+             <XCircle className="w-6 h-6 sm:w-8 sm:h-8 text-red-600 inline-block mr-2 sm:mr-3" />
               <h2 className="text-xl sm:text-3xl font-bold text-gray-900 inline-block">
                 Your Account Looks Unsecure
               </h2>
