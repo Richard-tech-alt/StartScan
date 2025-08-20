@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AlertCircle, CheckCircle, Loader2 } from 'lucide-react';
+import { CheckCircle, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export default function AccountSecurityScan() {
@@ -41,7 +41,7 @@ export default function AccountSecurityScan() {
        
         return newProgress > 100 ? 100 : newProgress;
       });
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   };
@@ -135,28 +135,25 @@ export default function AccountSecurityScan() {
         )}
 
         {scanState === 'complete' && (
-         <div className="px-6 sm:px-8 py-8 sm:py-12 text-center">
-  {/* Danger Icon and Message */}
-  <div className="mb-8 sm:mb-12">
-    <AlertCircle className="w-6 h-6 sm:w-8 sm:h-8 text-red-600 inline-block mr-2 sm:mr-3" />
-    <h2 className="text-xl sm:text-3xl font-bold text-red-700 inline-block">
-      Security Alert: Immediate Action Required
-    </h2>
-    <p className="text-red-600 text-base sm:text-lg mt-3 sm:mt-4 font-medium">
-      Suspicious activity has been detected on your account.  
-      Your device may be at serious risk of compromise.  
-      Scan immediately to prevent potential data loss.
-    </p>
-  </div>
-
-  <button
-    onClick={resetScan}
-    className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 sm:px-10 py-3 sm:py-4 rounded-lg transition-colors duration-200 text-base sm:text-lg shadow-lg"
-  >
-    🚨 Scan Device Now
-  </button>
-</div>
-
+          <div className="px-6 sm:px-8 py-8 sm:py-12 text-center">
+            {/* Success Icon and Message */}
+            <div className="mb-8 sm:mb-12">
+              <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-green-600 inline-block mr-2 sm:mr-3" />
+              <h2 className="text-xl sm:text-3xl font-bold text-gray-900 inline-block">
+                Your Account Looks Secure
+              </h2>
+              <p className="text-gray-500 text-base sm:text-lg mt-3 sm:mt-4">
+                No unusual activity detected. You're good to go!
+              </p>
+            </div>
+           
+            <button
+              onClick={resetScan}
+              className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-8 sm:px-10 py-3 sm:py-4 rounded-lg transition-colors duration-200 text-base sm:text-lg"
+            >
+              Go Back to Dashboard
+            </button>
+          </div>
         )}
       </div>
     </div>
